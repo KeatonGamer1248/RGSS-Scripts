@@ -7,6 +7,10 @@
 #//////////////////////////////////////////////////////////////////////////////#
 =end
 
+#-----------------------------------------------------------------------------------------------------------------
+# GITHUB REPOSITORY NOTE: (Unless you are testing and want to improve this) This script is very, very unfinished. 
+#-----------------------------------------------------------------------------------------------------------------
+
 $imported = {} unless $imported
 $imported[:KeatonGamer_TalkCommand] = true
 
