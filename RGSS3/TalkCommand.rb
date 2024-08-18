@@ -35,7 +35,8 @@ class Scene_TalkCommand < Scene_MenuBase
     file = "Graphics/System/HUD_Talk"
     @background_sprite.bitmap = Bitmap.new(file)
     
-    update
+    create_status_window
+    command_personal
   end
   
   def on_actor_cancel
@@ -51,11 +52,16 @@ class Scene_TalkCommand < Scene_MenuBase
     dispose_background
   end
   
-  def update
-    Graphics.update
-    Input.update
+  def create_status_window
+    @status_window = Window_MenuStatus.new(Graphics.width, 0)
   end
   
+  def command_personal
+    @status_window.select_last
+    @status_window.activate
+    @status_window.set_handler(:ok,     method(:on_actor_ok))
+    @status_window.set_handler(:cancel, method(:on_actor_cancel))
+  end
 end
 
 instance = Scene_TalkCommand.new
