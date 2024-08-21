@@ -14,6 +14,14 @@
 $imported = {} unless $imported
 $imported[:KeatonGamer_TalkCommand] = true
 
+# Start Module
+module KG 
+
+  # Replace with your 130x130 bitmap.
+  BACKGROUND = "System/HUD_Talk"
+  
+end # End Module
+
 # Start Class
 class Scene_TalkCommand < Scene_MenuBase
   
@@ -33,7 +41,7 @@ class Scene_TalkCommand < Scene_MenuBase
     @background_sprite.viewport = @background_viewport
     
     file = "Graphics/System/HUD_Talk"
-    @background_sprite.bitmap = Bitmap.new(file)
+    @background_sprite.bitmap = Bitmap.new(KG::file)
     
     create_status_window
     command_personal
