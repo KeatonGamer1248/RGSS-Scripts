@@ -1,9 +1,25 @@
-#//////////////////////////////////////////////////////////////////////////////#
+#==============================================================================#
 #                   CHECKLIST ITEM SCRIPT BY KEATONGAMER                       #
-#//////////////////////////////////////////////////////////////////////////////#
-# Feel free to use for your projects, I don't mind!                            #
-# Credit would be nice though, hehe~ Maybe even a free copy of your game?      #
-#//////////////////////////////////////////////////////////////////////////////#
+#------------------------------------------------------------------------------#
+# LEVEL: Easy                                                                  #
+# REQUIRES: Triacontane's Item Script Call                                     #
+#                                                                              #
+# HOW TO INSTALL:                                                              #
+#                                                                              #
+# Change the switches to your liking or set switches 23 - 29 in this order:    #
+# 23, A BOX OF OLD PHOTOS                                                      #
+# 24, A STUFFED BUNNY                                                          #
+# 25, A PILE OF DAISIES                                                        #
+# 26, A SPECIAL SONG                                                           #
+# 27, A FAMILIAR SCENT                                                         #
+# 28, A HUG FROM BEHIND                                                        #
+# 29, A SECOND PILLOW                                                          #
+#                                                                              #
+# Then create an item called "CHECKLIST"                                       #
+#                                                                              #
+# Inside the notetag box of the new item, paste this line of code:             #
+# <=SceneManager.call(Scene_ItemChecklist)=>                                   #
+#==============================================================================#
 
 $imported = {} if $imported.nil?
 $imported[:KG_ChecklistItem] = true
@@ -13,13 +29,21 @@ $imported[:KG_ChecklistItem] = true
 #=============================================================================
 module KG
   
-  ITEM_SWITCHES = [23, 24, 25, 26, 27, 28, 29]
-
+  ITEM_SWITCHES = [
+                    23, 
+                    24, 
+                    25, 
+                    26, 
+                    27, 
+                    28, 
+                    29
+                  ]
+  
 end
 #=============================================================================
 # ■ Scene_ItemChecklist
 #=============================================================================
-class Scene_ItemChecklist < Scene_Menu
+class Scene_ItemChecklist < Scene_Item
 
   attr_accessor :item_checklist
   #---------------------------------------------------------------------------
@@ -27,7 +51,6 @@ class Scene_ItemChecklist < Scene_Menu
   #---------------------------------------------------------------------------
   def start
     super
-    
     create_background
   end
   #---------------------------------------------------------------------------
@@ -59,41 +82,42 @@ class Scene_ItemChecklist < Scene_Menu
   #---------------------------------------------------------------------------
   def create_checkmark
     # Create Checkmark Viewport
-    @mark1_viewport = Viewport.new(166,  45, 20, 20)
-    @mark2_viewport = Viewport.new(166,  67, 20, 20)
-    @mark3_viewport = Viewport.new(166,  89, 20, 20)
-    @mark4_viewport = Viewport.new(166, 111, 20, 20)
-    @mark5_viewport = Viewport.new(166, 133, 20, 20)
-    @mark6_viewport = Viewport.new(166, 155, 20, 20)
-    @mark7_viewport = Viewport.new(166, 177, 20, 20)
+    @item1_viewport = Viewport.new(166,  45, 226, 20)
+    @item2_viewport = Viewport.new(166,  67, 226, 20)
+    @item3_viewport = Viewport.new(166,  89, 226, 20)
+    @item4_viewport = Viewport.new(166, 111, 226, 20)
+    @item5_viewport = Viewport.new(166, 133, 226, 20)
+    @item6_viewport = Viewport.new(166, 155, 226, 20)
+    @item7_viewport = Viewport.new(166, 177, 226, 20)
+    
+    # Create Viewport 'Z'
+    @item1_viewport.z = 450
+    @item2_viewport.z = 450
+    @item3_viewport.z = 450
+    @item4_viewport.z = 450
+    @item5_viewport.z = 450
+    @item6_viewport.z = 450
+    @item7_viewport.z = 450
     
     # Create Checkmark Sprite
-    @mark1_sprite = Sprite.new()
-    @mark2_sprite = Sprite.new()
-    @mark3_sprite = Sprite.new()
-    @mark4_sprite = Sprite.new()
-    @mark5_sprite = Sprite.new()
-    @mark6_sprite = Sprite.new()
-    @mark7_sprite = Sprite.new()
+    @item1_sprite = Sprite.new()
+    @item2_sprite = Sprite.new()
+    @item3_sprite = Sprite.new()
+    @item4_sprite = Sprite.new()
+    @item5_sprite = Sprite.new()
+    @item6_sprite = Sprite.new()
+    @item7_sprite = Sprite.new()
       
     # Connect Sprite.viewport to Viewport
-    @mark1_sprite.viewport = @mark1_viewport
-    @mark2_sprite.viewport = @mark2_viewport
-    @mark3_sprite.viewport = @mark3_viewport
-    @mark4_sprite.viewport = @mark4_viewport
-    @mark5_sprite.viewport = @mark5_viewport
-    @mark6_sprite.viewport = @mark6_viewport
-    @mark7_sprite.viewport = @mark7_viewport
+    @item1_sprite.viewport = @item1_viewport
+    @item2_sprite.viewport = @item2_viewport
+    @item3_sprite.viewport = @item3_viewport
+    @item4_sprite.viewport = @item4_viewport
+    @item5_sprite.viewport = @item5_viewport
+    @item6_sprite.viewport = @item6_viewport
+    @item7_sprite.viewport = @item7_viewport
     
     # Create Checkmark Bitmap
-    @mark1_sprite.bitmap = Bitmap.new("Graphics/System/HUD_Checklist_mark")
-    @mark2_sprite.bitmap = Bitmap.new("Graphics/System/HUD_Checklist_mark")
-    @mark3_sprite.bitmap = Bitmap.new("Graphics/System/HUD_Checklist_mark")
-    @mark4_sprite.bitmap = Bitmap.new("Graphics/System/HUD_Checklist_mark")
-    @mark5_sprite.bitmap = Bitmap.new("Graphics/System/HUD_Checklist_mark")
-    @mark6_sprite.bitmap = Bitmap.new("Graphics/System/HUD_Checklist_mark")
-    @mark7_sprite.bitmap = Bitmap.new("Graphics/System/HUD_Checklist_mark")
-
     create_item_names
   end
   #---------------------------------------------------------------------------
@@ -116,45 +140,45 @@ class Scene_ItemChecklist < Scene_Menu
   #---------------------------------------------------------------------------
   def create_items
     if $game_switches[KG::ITEM_SWITCHES[0]] == true
-      @background_sprite.bitmap.new
+      @item1_sprite.bitmap = Bitmap.new("Graphics/System/HUD_Checklist_item1")
     else
-      @background_sprite.bitmap.draw_text(35, 12, 183, 51, @item0)
+      @item1_sprite.bitmap = Bitmap.new("Graphics/System/HUD_Checklist_item0")
     end
     
     if $game_switches[KG::ITEM_SWITCHES[1]] == true
-      @background_sprite.bitmap.draw_text(35, 27, 182, 76, @item2)
+      @item2_sprite.bitmap = Bitmap.new("Graphics/System/HUD_Checklist_item2")
     else
-      @background_sprite.bitmap.draw_text(35, 27, 186, 76, @item0)
+      @item2_sprite.bitmap = Bitmap.new("Graphics/System/HUD_Checklist_item0")
     end
     
     if $game_switches[KG::ITEM_SWITCHES[2]] == true
-      @background_sprite.bitmap.draw_text(35, 38, 156, 99, @item3)
+      @item3_sprite.bitmap = Bitmap.new("Graphics/System/HUD_Checklist_item3")
     else
-      @background_sprite.bitmap.draw_text(35, 38, 156, 99, @item0)
+      @item3_sprite.bitmap = Bitmap.new("Graphics/System/HUD_Checklist_item0")
     end
     
     if $game_switches[KG::ITEM_SWITCHES[3]] == true
-      @background_sprite.bitmap.draw_text(35, 49, 156, 122, @item4)
+      @item4_sprite.bitmap = Bitmap.new("Graphics/System/HUD_Checklist_item4")
     else
-      @background_sprite.bitmap.draw_text(35, 49, 156, 122, @item0)
+      @item4_sprite.bitmap = Bitmap.new("Graphics/System/HUD_Checklist_item0")
     end
     
     if $game_switches[KG::ITEM_SWITCHES[4]] == true
-      @background_sprite.bitmap.draw_text(35, 58, 156, 147, @item5)
+      @item5_sprite.bitmap = Bitmap.new("Graphics/System/HUD_Checklist_item5")
     else
-      @background_sprite.bitmap.draw_text(35, 58, 156, 147, @item0)
+      @item5_sprite.bitmap = Bitmap.new("Graphics/System/HUD_Checklist_item0")
     end
     
     if $game_switches[KG::ITEM_SWITCHES[5]] == true
-      @background_sprite.bitmap.draw_text(35, 69, 156, 172, @item6)
+      @item6_sprite.bitmap = Bitmap.new("Graphics/System/HUD_Checklist_item6")
     else
-      @background_sprite.bitmap.draw_text(35, 69, 156, 172, @item0)
+      @item6_sprite.bitmap = Bitmap.new("Graphics/System/HUD_Checklist_item0")
     end
     
     if $game_switches[KG::ITEM_SWITCHES[6]] == true
-      @background_sprite.bitmap.draw_text(35, 81, 143, 194, @item7)
+      @item7_sprite.bitmap = Bitmap.new("Graphics/System/HUD_Checklist_item7")
     else
-      @background_sprite.bitmap.draw_text(35, 81, 156, 194, @item0)
+      @item7_sprite.bitmap = Bitmap.new("Graphics/System/HUD_Checklist_item0")
     end
     # Items are not selectable and are shown after a switch is enabled.
     @background_sprite.bitmap.font.color = Color.new(0, 0, 0, 255)
@@ -177,5 +201,14 @@ class Scene_ItemChecklist < Scene_Menu
   def terminate
     super
     dispose_background
+  end
+  #---------------------------------------------------------------------------
+  # * new method: setting
+  #
+  # For Luna Engine. Comment out this method if you do not have Luna Engine.
+  # Otherwise the your game *might* will explode.
+  #---------------------------------------------------------------------------
+  def setting
+    MenuLuna::Addon::ChecklistMenu::BACKGROUND
   end
 end
