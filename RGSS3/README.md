@@ -1,0 +1,1 @@
+This folder is for RGSS scripts. For RGSS2 scripts, click <a href="https://github.com/KeatonGamer1248/RGSS-Scripts/tree/main/RGSS2">here</a>. For RGSS scripts, click <a href="https://github.com/KeatonGamer1248/RGSS-Scripts/tree/main/RGSS">here</a>.
