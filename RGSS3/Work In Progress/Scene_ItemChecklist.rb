@@ -5,6 +5,9 @@
 # Credit would be nice though, hehe~ Maybe even a free copy of your game?      #
 #//////////////////////////////////////////////////////////////////////////////#
 
+# Really old version, check the "Menu" folder in the RGSS3 folder for the latest
+# version.
+
 $imported = {} if $imported.nil?
 $imported[:KG_ChecklistItem] = true
 
