@@ -1,10 +1,10 @@
 #==============================================================================
 # ** GameJolt API Expansion Pack
 # Author: KeatonGamer
-# Version: v0.1.0-beta
+# Version: v0.1.1-beta
 #------------------------------------------------------------------------------
 # This applies an expansion pack for Florian Van Strien's GameJolt API script.
-# Which can be donwloaded here on GameJolt: 
+# Which can be downloaded here on GameJolt: 
 # gamejolt.com/games/gamejolt-achievement-api-for-rpg-maker-vx-ace/40546
 #==============================================================================
 
