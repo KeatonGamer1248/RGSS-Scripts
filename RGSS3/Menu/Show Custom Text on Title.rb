@@ -1,7 +1,7 @@
 #==============================================================================
 # ** Show Custom Text on Title
 # Author: KeatonGamer
-# Version: 1.0.2
+# Version: 1.0.3
 #------------------------------------------------------------------------------
 # Description:
 #  This script shows custom text on the Title Screen.
@@ -9,6 +9,10 @@
 # How to use: 
 #  Simply place below Materials and above Main Process.
 #  Configure to your liking.
+#
+# Terms of Service:
+#  Please do not use this in any NSFW games!
+#  Free for non-commerical, or commerical games. Credit is required!
 #==============================================================================
 module KG
   module CustomTitleText
