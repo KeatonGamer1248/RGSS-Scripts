@@ -1,7 +1,7 @@
 #==============================================================================
 # ** Dialogue Script
 # Author: KeatonGamer
-# Version: 1.1.1
+# Version: 1.1.2
 #------------------------------------------------------------------------------
 # Description:
 #  This script stores dialogue and keeps track of it. Similar to how OMORI 
@@ -19,6 +19,10 @@
 #  4. If you want to close the message and create a new one, use this script
 #     call: Dialogue::wait_for_message
 #  5. Profit.
+#
+# Terms of Service:
+#  Please do not use this in any NSFW games!
+#  Free for non-commerical, or commerical games. Credit is required!
 #==============================================================================
 
 module Dialogue
