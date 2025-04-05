@@ -1,7 +1,7 @@
 #==============================================================================
 # OMORI 2014 Combat
 # Author: KeatonGamer
-# Version: v1.0.1
+# Version: v1.0.2
 #------------------------------------------------------------------------------
 # This script adds a OMORI 2014 like combat system featuring emotions.
 #
@@ -17,7 +17,8 @@
 #   item_apply(user, item)
 #
 # Terms of Service:
-#  No credit needed.
+#  Please do not use this in any NSFW games!
+#  Free for non-commerical, or commerical games. Credit is required!
 #==============================================================================
 
 $imported = {} if $imported.nil?
